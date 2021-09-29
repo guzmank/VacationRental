@@ -25,6 +25,7 @@ namespace VacationRental.Api.Controllers
         {
             if (nights < 0)
                 throw new ApplicationException("Nights must be positive");
+
             if (!_rentals.ContainsKey(rentalId))
                 throw new ApplicationException("Rental not found");
 
@@ -33,6 +34,7 @@ namespace VacationRental.Api.Controllers
                 RentalId = rentalId,
                 Dates = new List<CalendarDateViewModel>() 
             };
+
             for (var i = 0; i < nights; i++)
             {
                 var date = new CalendarDateViewModel
